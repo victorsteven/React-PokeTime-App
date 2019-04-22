@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import axios from 'axios';
+import { deletePost } from '../actions /postActions'
 
 class Post extends Component {
   handleClick = () => {
@@ -65,7 +66,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     //the parameter in the function below are 'action' parameters
-    deletePost: (id) => { dispatch({type: 'DELETE_POST', id: id})}
+    // deletePost: (id) => { dispatch({type: 'DELETE_POST', id: id})}
+    deletePost: (id) => { dispatch(deletePost(id))}
+
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
